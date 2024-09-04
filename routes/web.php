@@ -13,22 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.principal');
+Route::get('/', [App\Http\Controllers\PrincipalController  ::class, 'principal'])->name('site.principal');
 
-Route::get('/sobrenos', [App\Http\Controllers\SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
+Route::get('/sobrenos', [App\Http\Controllers\Intranetindex::class, 'Intranet'])->name('site.sobrenos');
 
-Route::get('/contato', [App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
-Route::post('/contato', [App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('site.login');
 
 Route::prefix('app')->group(function () {
 
     Route::get('/clientes', [App\Http\Controllers\ClientesController::class, 'clientes'])->name('app.clientes');
-
-    Route::get('/produtos', [App\Http\Controllers\ProdutosController::class, 'produtos'])->name('app.produtos');
-
-    Route::get('/fornecedores', [App\Http\Controllers\FornecedoresController::class, 'fornecedores'])->name('app.fornecedores');
 
 });
 
